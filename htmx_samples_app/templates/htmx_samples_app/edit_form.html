@@ -2,6 +2,6 @@
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit" class="btn">Submit</button>
-  <button class="btn" hx-get="{% url 'htmx_samples_app:show_info_view' pk=profile.pk %}">Cancel</button>
+   <button class="btn" hx-get="{% url 'htmx_samples_app:show_info_view' pk=profile.pk %}">Cancel</button>
 
 </form>
