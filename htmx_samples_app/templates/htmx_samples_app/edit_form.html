@@ -1,16 +1,7 @@
-<form hx-put="/contact/1" hx-target="this" hx-swap="outerHTML">
-    <div>
-      <label>First Name</label>
-      <input type="text" name="firstName" value="Joe">
-    </div>
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" name="lastName" value="Blow">
-    </div>
-    <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" name="email" value="joe@blow.com">
-    </div>
-    <button class="btn">Submit</button>
-    <button class="btn" hx-get="/contact/1">Cancel</button>
-  </form>
+<form method="post" action="{% url 'htmx_samples_app:profile_update' pk=profile.pk %}" hx-target="this" hx-swap="outerHTML">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn">Submit</button>
+  <button class="btn" hx-get="{% url 'htmx_samples_app:show_info_view' pk=profile.pk %}">Cancel</button>
+
+</form>
