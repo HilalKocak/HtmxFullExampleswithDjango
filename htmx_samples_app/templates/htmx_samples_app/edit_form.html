@@ -1,4 +1,6 @@
-<form hx-post="{% url 'htmx_samples_app:profile_update' pk=profile.pk %}" >
+<form hx-post="{% url 'htmx_samples_app:profile_update' pk=profile.pk %}"
+
+>
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit" class="btn">Submit</button>
