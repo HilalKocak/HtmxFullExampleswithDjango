@@ -13,6 +13,12 @@ def show_info_view(request, pk):
     
     return render(request, 'htmx_samples_app/base.html', context)
 
+def show_list(request):
+    items = Profile.objects.all()
+    context = dict(
+        items = items,
+    )
+    return render(request, 'htmx_samples_app/base.html', context)
 
 class ProfileUpdateView(UpdateView):
     model = Profile
