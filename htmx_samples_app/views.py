@@ -12,7 +12,7 @@ def show_info_view(request, pk):
         item = item,   
     )
     
-    return render(request, 'htmx_samples_app/base.html', context)
+    return render(request, 'htmx_samples_app/row.html', context)
 
 def show_list(request):
     items = Profile.objects.all()
@@ -25,7 +25,7 @@ class ProfileUpdateView(UpdateView):
     model = Profile
     form_class = ProfileModelForm
     template_name = 'htmx_samples_app/edit_form.html'
-    success_url = reverse_lazy('show_list') 
+    success_url = reverse_lazy('show_info_view', kwargs = {"pk": model.pk}) 
 
     
     
