@@ -1,0 +1,12 @@
+<div id="item_{{item.pk}}">
+      
+    <div><label>First Name</label>: {{ item.first_name }}</div>
+    <div><label>Last Name</label>: {{ item.last_name }}</div>
+    <div><label>Email</label>: {{ item.email }}</div>
+
+    <button hx-target="#item_{{item.pk}}"  hx-get="{% url 'htmx_samples_app:profile_update' pk=item.pk %}" class="btn btn-primary">
+    Click To Edit
+    </button>
+
+  
+</div>
